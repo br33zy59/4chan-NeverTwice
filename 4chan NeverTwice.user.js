@@ -17,8 +17,8 @@
     const DB_VERSION = 3;
     const HAMMING_THRESHOLD = 4; // How similar posts have to be to match. Lower = must be more similar.
     const PRUNE_DAYS = 90;
-    const DEBUG = true; // Set to false when done testing
-    const MODE = 'mark'; // Options: 'hide' or 'mark'
+    const DEBUG = false; // Set to false when done testing
+    const MODE = 'hide'; // Options: 'hide' or 'mark'
     const CROSS_BOARD_CHECK = 1; // 1 = compare against all boards, 0 = same board only
 
     let processTimeout = null;
