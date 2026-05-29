@@ -9,7 +9,9 @@ A browser [userscript](https://en.wikipedia.org/wiki/Userscript) to detect and h
 3. Every thread is compared against hashes already seen.
 4. If a post is very similar to a previous post, it will be marked or hidden (configurable in the script).
 
-Over time, your index of seen posts will grow, and the script's ability to detect repeat, low-value posts will grow. Posts older than 90 days (configurable) are forgotten.
+Over time, your index of seen posts will grow, and so the script's ability to detect repetitive low-value posts will grow.
+
+Posts older than 90 days are forgotten. You can change that and remember a lot more.
 
 No data is sent externally, the script builds up a local index over time and applies it as you browse.
 
@@ -34,6 +36,8 @@ At the top of the script you'll find some easily configurable elements:
 NeverTwice is compatible with, but not dependent on, [4Chan-X](https://github.com/ccd0/4chan-x).
 
 Some effort has been made to detect and permit 'General' threads, which are deliberately repetitive. It's not perfect, but it should catch all but the laziest generals.
+
+The entire script completely disregards images. While 4chan was founded on novel images, today their relevance as far as original content goes is minimal to zero. It wouldn't be hard to extend this script and factor in image same-ness, if that's your kink.
 
 # Troubleshooting
 If you're encountering false positives or other issues with the script running:
