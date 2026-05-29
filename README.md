@@ -1,4 +1,4 @@
-# 4chan-NeverTwice
+# Never Twice
 
 A browser [userscript](https://en.wikipedia.org/wiki/Userscript) to detect and hide repetitive 4chan threads.
 
