@@ -1,12 +1,13 @@
 # 4chan-NeverTwice
 
-A Userscript to detect and hide repetitive 4chan threads.
+A browser [userscript](https://en.wikipedia.org/wiki/Userscript) to detect and hide repetitive 4chan threads.
 
 # How it works
 
-1. When you visit the catalog of a 4chan board, the script generates a [SimHash](https://en.wikipedia.org/wiki/SimHash) for each thread.
-2. Every thread is compared against hashes you've already seen.
-3. If a post is too similar to a previous post, it will be marked or hidden (configurable in the script).
+1. You visit the catalog on 4chan
+2. The script generates a [SimHash](https://en.wikipedia.org/wiki/SimHash) for every thread.
+3. Every thread is compared against hashes already seen.
+4. If a post is very similar to a previous post, it will be marked or hidden (configurable in the script).
 
 Over time, your index of seen posts will grow, and the script's ability to detect repeat, low-value posts will grow. Posts older than 90 days (configurable) are forgotten.
 
