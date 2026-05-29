@@ -20,7 +20,7 @@ No data is sent externally, the script builds a local index over time and applie
 Basic install guide should be valid for Firefox, Chrome, or any of their derivatives (Edge, LibreWolf etc.)
 
 1. Install either [Violentmonkey](https://addons.mozilla.org/en-US/firefox/addon/violentmonkey/) or [Tampermonkey](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/) browser extensions. [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) might work, but less sure.
-2. Import the NeverTwice script into the extension
+2. Import the [NeverTwice script](https://github.com/br33zy59/4chan-NeverTwice/raw/refs/heads/main/4chan%20NeverTwice.user.js) into the extension
 3. Browse to the catalog page of any board on 4chan
 
 # Configuration
