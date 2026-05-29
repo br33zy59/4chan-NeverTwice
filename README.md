@@ -5,21 +5,21 @@ A browser [userscript](https://en.wikipedia.org/wiki/Userscript) to detect and h
 # How it works
 
 1. You visit the catalog on 4chan
-2. The script generates a [SimHash](https://en.wikipedia.org/wiki/SimHash) for every thread.
-3. Every thread is compared against hashes already seen.
-4. If a post is very similar to a previous post, it will be marked or hidden (configurable in the script).
+2. The script quietly generates a [SimHash](https://en.wikipedia.org/wiki/SimHash) for every thread and stashes it in the abyss.
+3. Each thread is compared against the hashes of threads already seen.
+4. If a post is similar enough to a previous post, it will be marked or hidden (configurable in the script).
 
-Over time, your index of seen posts will grow, and so the script's ability to detect repetitive low-value posts will grow.
+Over time, your index of seen posts will grow, and so will the script's ability to detect repetitive low-value posts and yeet them into the everafter.
 
-Posts older than 90 days are forgotten. You can change that and remember a lot more.
+Posts older than 90 days are forgotten. You can increase/reduce that if you like.
 
-No data is sent externally, the script builds up a local index over time and applies it as you browse.
+No data is sent externally, the script builds a local index over time and applies it while you browse.
 
 # Install
 
 Basic install guide should be valid for Firefox, Chrome, or any of their derivatives (Edge, LibreWolf etc.)
 
-1. Install Violentmonkey or Tampermonkey extension
+1. Install either [Violentmonkey](https://addons.mozilla.org/en-US/firefox/addon/violentmonkey/) or [Tampermonkey](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/) browser extensions. [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) might work, but less sure.
 2. Import the NeverTwice script into the extension
 3. Browse to the catalog page of any board on 4chan
 
