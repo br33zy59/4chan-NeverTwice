@@ -6,7 +6,7 @@ A [userscript](https://en.wikipedia.org/wiki/Userscript) to automatically hide r
 
 1. You browse the catalog on 4chan
 2. The script stores a small [hash](https://en.wikipedia.org/wiki/SimHash) of each thread.
-3. Threads are hidden if too similar to one you've seen before.
+3. Threads too similar to ones you've seen before are hidden.
 
 Over time the store of known threads will grow, and you will see fewer repetitive posts.
 
