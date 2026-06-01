@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         4chan NeverTwice
 // @namespace    http://tampermonkey.net/
-// @version      0.8
+// @version      0.9
 // @description  Hides threads based on similarity to ones that have been posted before
 // @author       Foo
 // @match        https://boards.4chan.org/*
@@ -20,6 +20,7 @@
     const DEBUG = false; // Set to false when done testing
     const MODE = 'hide'; // Options: 'hide' or 'mark'
     const CROSS_BOARD_CHECK = 1; // 1 = compare against all boards, 0 = same board only
+    const HIDE_GARBAGE = 0; // 1 = hide/mark empty/insufficient-text threads (uses MODE), 0 = show them (don't index)
 
     let processTimeout = null;
     let db;
@@ -63,7 +64,7 @@
         return false;
     }
 
-    // ====================== Mark Duplicate Threads ======================
+    // ====================== Mark / Hide Threads ======================
     function markDuplicate(thread) {
         thread.style.border = '3px solid #ff4444';
         thread.style.backgroundColor = 'rgba(255, 68, 68, 0.08)';
@@ -72,6 +73,17 @@
         const img = thread.querySelector('img');
         if (img) {
             img.style.border = '2px solid #ff0000';
+        }
+    }
+
+    function applyThreadAction(thread, board, threadNo, kind) {
+        if (MODE === 'hide') {
+            thread.style.display = 'none';
+            thread.classList.add('hidden-duplicate');
+            log(`HIDING ${kind} thread /${board}/${threadNo}`);
+        } else {
+            markDuplicate(thread);
+            log(`MARKED ${kind} thread /${board}/${threadNo}`);
         }
     }
 
@@ -424,6 +436,7 @@
 
                 if (!title && !teaser) {
                     processedThreads.add(key);
+                    if (HIDE_GARBAGE) applyThreadAction(thread, board, threadNo, 'garbage');
                     continue;
                 }
 
@@ -433,6 +446,7 @@
 
                 if (isDegenerateHash(simhash)) {
                     log(`Skipped (insufficient text): /${board}/${threadNo} | "${combined.substring(0, 80)}"`);
+                    if (HIDE_GARBAGE) applyThreadAction(thread, board, threadNo, 'garbage');
                     continue;
                 }
 
@@ -443,14 +457,7 @@
                 const result = isRepeat(board, simhash, threadNo, candidates);
 
                 if (result.isDuplicate) {
-                    if (MODE === 'hide') {
-                        thread.style.display = 'none';
-                        thread.classList.add('hidden-duplicate');
-                        log(`HIDING duplicate thread /${board}/${threadNo}`);
-                    } else {
-                        markDuplicate(thread);
-                        log(`MARKED duplicate thread /${board}/${threadNo}`);
-                    }
+                    applyThreadAction(thread, board, threadNo, 'duplicate');
                 } else {
                     addSeenThread(board, threadNo, simhash);
                     indexedKeys.add(key);
