@@ -1,6 +1,6 @@
-# Never Twice for 4Chan
+# 4Chan-NeverTwice
 
-A [userscript](https://en.wikipedia.org/wiki/Userscript) to automatically hide repetitive 4chan threads.
+A [userscript](https://en.wikipedia.org/wiki/Userscript) that hides repetitive 4chan threads.
 
 # How it works
 
